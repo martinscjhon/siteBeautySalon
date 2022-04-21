@@ -144,6 +144,10 @@ nav ul li a:hover::after{
   width: 100%;
 }
 
+/* ---------------------------------
+          Toggle Aberto
+--------------------------------- */
+
 nav.show .menu{
   opacity: 1;
   visibility: visible;
@@ -156,9 +160,7 @@ nav.show .menu{
   position: fixed;
   top: 0;
   left: 0;
-}
 
-nav.show .menu{
   display: grid;
   place-content: center;
 }
@@ -178,6 +180,14 @@ nav.show ul.grid{
 
 .logo span{
   color: var(--base-color)
+}
+
+
+/* ---------------------------------
+          ToggleMenu
+--------------------------------- */
+nav .icon-close{
+  visibility: hidden;
 }
 
 /* ---------------------------------
@@ -253,9 +263,13 @@ nav.show ul.grid{
   height: 3.5rem;  
 
   transition: .3s;
+
+  box-shadow: rgb(204,210,232) 3px 3px 6px 1px, rgb(255,255,255) -3px -3px 6px 1px;
 }
 
 .button:hover{
   background: var(--base-color-alt);
+
+  transform: translateY(-10px);
 }
 
