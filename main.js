@@ -17,7 +17,7 @@ for (const element of links) {
   })
 }
 
-// função scroll header
+// função scroll header com borda
 const header = document.querySelector('#header')
 const navHeight = header.offsetHeight
 
@@ -30,3 +30,34 @@ window.addEventListener('scroll', function () {
     header.classList.remove('scroll')
   }
 })
+
+// Testimonials slider (swiper)
+//configurações do slide
+const swiper = new Swiper('.swiper', {
+  slidesPerView: 1,
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  mousewheel: false,
+  keyboard: true
+})
+
+// ScrollRevel
+//configurações do scrollrevel
+const scroll = ScrollReveal({
+  origin: 'top',
+  distance: '30px',
+  duration: 850,
+  reset: true
+})
+
+scroll.reveal(
+  `
+  #home .image, #home .text,
+  #about .image, #about .text
+  #services header, #services .card,
+  #testimonials header, #testimonials .testimonials,
+  #contact .text, #contact .links
+  `,
+  { interval: 100 }
+)
