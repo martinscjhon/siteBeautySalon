@@ -5,7 +5,7 @@
   --header-height: 4.5rem;
 
   /* colors */
-  --hue: 130;
+  --hue: 149;
   --base-color: hsl(var(--hue) 36% 60%);
   --base-color-second: hsl(var(--hue) 65% 88%);
   --base-color-alt: hsl(var(--hue) 57% 53%);
@@ -13,7 +13,7 @@
   --back-top-top: hsl(var(--hue) 30% 40%);
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 96%);
-  --body-color: hsl(0 0% 98%);  
+  --body-color: hsl(0 0% 98%);    
 }
 
 *{
@@ -39,7 +39,7 @@ body{
   font: 400 1rem "DM Sans", sans-serif;
   color: var(--text-color);
   background: var(--body-color);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;  
 }
 
 .title{
@@ -97,8 +97,9 @@ main{
   box-shadow: 2px 4px 20px 1px rgb(0, 0, 0, 0.2);
 }
 
-.container{  
-  margin: 0 1.5rem;
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .grid{
@@ -107,7 +108,7 @@ main{
 }
 
 .section{
-  padding: 5rem 0;
+  padding: calc(1rem + var(--header-height)) 0;
 }
 
 .section header{
@@ -237,58 +238,51 @@ nav.show div.icon-close{
 }
 
 /* --------------------------------------------HOMEPAGE */
-#home{
+#home {
   overflow: hidden;
 }
 
-#home .container{
-  margin: 0;  
+#home .container {
+  margin: 0;
 }
 
-#home .text{
-  width: 100%;
-  margin: 0 1.5rem;
-}
-
-#home .image{
+#home .image {
   position: relative;
 }
 
-#home .image::before{
-  content:"";
+#home .image::before {
+  content: '';
   height: 100%;
-  width:100%;
-
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
   top: -16.8%;
   left: 16.7%;
-
-  background: var(--base-color-second);
-
-  position: absolute;
   z-index: 0;
 }
 
-#home .image img{
+#home .image img {
   position: relative;
   right: 2.93rem;
 }
 
-#home .image img, 
-#home .image::before{
+#home .image img,
+#home .image::before {
   border-radius: 0.25rem;
 }
 
-#home .text{
-  margin: 0rem 1.5rem;
-  text-align: center;  
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
 }
 
-#home .text p{
-  margin-bottom: 2rem;
-}
-
-#home .text h1{
+#home .text h1 {
   margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
 }
 
 .button{
@@ -324,7 +318,7 @@ nav.show div.icon-close{
 
 #about .text{
   width: 100%;
-  margin: 0 1.5rem;
+  margin: 0 1.5rem;  
 }
 
 #about .image{
@@ -346,8 +340,7 @@ nav.show div.icon-close{
 }
 
 #about .image img{
-  position: relative;
-  right: 2.93rem;
+  position: relative;  
 }
 
 #about .image img, 
@@ -363,8 +356,8 @@ nav.show div.icon-close{
   margin-bottom: 2rem;
 }
 
-#about .text h1{
-  margin-bottom: 1rem;
+#about .container {
+  margin: 0 1.5rem 0 0;
 }
 
 /* --------------------------------------------SERVICES */
@@ -580,4 +573,9 @@ footer .social i:hover{
   opacity: 1;  
 
   transform: translateY(0%);
+}
+
+/* --------------------------------------------RESPONSIVE */
+@media (min-width: 992px){
+  
 }
