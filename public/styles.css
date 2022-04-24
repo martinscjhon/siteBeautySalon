@@ -330,8 +330,9 @@ nav.show div.icon-close{
 }
 
 #about .text{
-  width: 100%;
-  margin: 0 1.5rem;  
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #about .image{
