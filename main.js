@@ -49,7 +49,13 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination'
   },
   mousewheel: false,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 // ScrollRevel
@@ -65,7 +71,7 @@ scroll.reveal(
   `
   #home .image, #home .text,
   #about .image, #about .text
-  #services header, #services .card,
+  #services header, #services .containerCard, .card
   #testimonials header, #testimonials .testimonials,
   #contact .text, #contact .links,
   footer .brand, footer .social

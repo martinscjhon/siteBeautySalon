@@ -1,8 +1,35 @@
 /* box-shadow: direita | baixo | blur | espaçamento na página */
 
-/* --------------------------------------------GLOBAL */
+/*====  RESET ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*====  VARIABLES ============================ */
 :root{
   --header-height: 4.5rem;
+
+  /* fonts */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 
   /* colors */
   --hue: 149;
@@ -16,41 +43,27 @@
   --body-color: hsl(0 0% 98%);    
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a{
-  text-decoration: none;
-}
-
-img{
-  width: 100%;
-  height: auto;
-}
+/*===  BASE ============================ */
 
 html{
   scroll-behavior: smooth;
 }
 
 body{
-  font: 400 1rem "DM Sans", sans-serif;
+  font: 400 1rem var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;  
 }
 
 .title{
-  font: 700 1.875rem "Poppins", sans-serif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 }
 
 .divider-1{
   height: 1px;
-
   background: linear-gradient(
     270deg, 
     hsl(var(--hue), 36%, 57%, 1), 
@@ -60,7 +73,6 @@ body{
 
 .divider-2{
   height: 1px;
-
   background: linear-gradient(
     270deg, 
     hsl(var(--hue), 65%, 88%, 0.34), 
@@ -68,33 +80,9 @@ body{
   );
 }
 
+/*====  LAYOUT ============================ */
 main{
-  margin-top: calc(var(--header-height) + 1.5rem);
-}
-
-.textStronger{
-  color: var(--base-color)
-}
-
-/* --------------------------------------------HEADER */
-#header{
-  border-bottom: 1px solid #e4e4e4; 
-  margin-bottom: 2rem; 
-  width: 100%;
-
-  display: flex;  
-
-  position: fixed;
-  z-index: 100;
-
-  top: 0;
-  left: 0;
-
-  background-color: var(--body-color);
-}
-
-#header.scroll{
-  box-shadow: 2px 4px 20px 1px rgb(0, 0, 0, 0.2);
+  margin-top: calc(var(--header-height) + 2rem);
 }
 
 .container {
@@ -107,8 +95,16 @@ main{
   gap: 2rem;  
 }
 
-.section{
-  padding: calc(1rem + var(--header-height)) 0;
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+.textStronger{
+  color: var(--base-color)
+}
+
+.section .subtitle{
+  font-size: var(--subtitle-font-size);
 }
 
 .section header{
@@ -119,14 +115,30 @@ main{
   margin-bottom: 1rem;
 }
 
-/* --------------------------------------------NAVIGATION */
-nav{
-  height: var(--header-height)  ;
+/*====  HEADER ============================ */
+#header{
+  border-bottom: 1px solid #e4e4e4; 
+  margin-bottom: 2rem; 
   width: 100%;
-  
+  display: flex;  
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: var(--body-color);
+}
+
+#header.scroll{
+  box-shadow: 2px 4px 20px 1px rgb(0, 0, 0, 0.2);
+}
+
+/*====  NAVIGATION ============================ */
+nav {
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 nav .title{
@@ -135,19 +147,17 @@ nav .title{
 
 nav ul li{
   text-align: center;
-  list-style: none;
 }
 
 nav .menu ul{
   display: none;
 }
 
-nav .menu{
+nav .menu {
   opacity: 0;
-  visibility: hidden;  
-
+  visibility: hidden;
   top: -20rem;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 nav ul li a{
@@ -178,7 +188,7 @@ nav ul li a:hover::after{
   width: 100%;
 }
 
-/* --------------------------------------------TOGGLE ABERTO */
+/* Mostrar menu */
 nav.show .menu{
   opacity: 1;
   visibility: visible;
@@ -204,7 +214,7 @@ nav.show .menu ul{
   display: grid;
 }
 
-/* --------------------------------------------TOGGLE ICONS */
+/* icons */
 nav .icon-close{
   visibility: hidden;
   opacity: 0;
@@ -226,24 +236,27 @@ nav.show div.icon-close{
 .toggle{
   color: var(--base-color);
   font-size: 1.5rem;
-
   cursor: pointer;
 }
 
-/* --------------------------------------------LOGO */
+/*====  LOGO ============================ */
 .logo{
-  font: 700 1.4rem "Poppins", sans-serif;
+  font: 700 1.4rem var(--title-font);
 
   color: var(--title-color);
 }
 
-/* --------------------------------------------HOMEPAGE */
+.logo-alt span{   
+  color: var(--body-color);
+}
+
+/*====  HOME ============================ */
 #home {
   overflow: hidden;
 }
 
 #home .container {
-  margin: 0;
+  margin: -4REM 0;
 }
 
 #home .image {
@@ -289,7 +302,7 @@ nav.show div.icon-close{
   background: var(--base-color);
 
   color: var(--text-color-light);
-  font: 500 1rem "DM Sans", sans-serif;
+  font: 500 1rem var(--body-font);
 
   display: inline-flex;
   align-items: center;
@@ -311,7 +324,7 @@ nav.show div.icon-close{
   transform: translateY(-10px);
 }
 
-/* --------------------------------------------ABOUTUSPAGE */
+/*====  ABOUT ============================ */
 #about{
   background-color: white;
 }
@@ -360,7 +373,7 @@ nav.show div.icon-close{
   margin: 0 1.5rem 0 0;
 }
 
-/* --------------------------------------------SERVICES */
+/*===  SERVICES ============================ */
 .containerCard.grid{  
   gap: 1.5rem;
 }
@@ -391,7 +404,7 @@ nav.show div.icon-close{
   margin-bottom: 0.75rem;
 }
 
-/* --------------------------------------------TESTIMONIALS */
+/*===  TESTIMONIALS ============================ */
 #testimonials{
   background: white;  
 }
@@ -450,7 +463,7 @@ nav.show div.icon-close{
   clip-path: circle();
 }
 
-/* --------------------------------------------SLIDER */
+/*===  SLIDE ============================ */
 .swiper-slide{
   height: auto;
   padding: 4rem 1rem;  
@@ -469,7 +482,7 @@ nav.show div.icon-close{
   margin-top: 1rem;
 }
 
-/* --------------------------------------------CONTACT */
+/*===  CONTACT ============================ */
 #contact .grid{
   gap: 4rem;
 }
@@ -501,17 +514,15 @@ nav.show div.icon-close{
   color: var(--base-color);
 }
 
-/* --------------------------------------------FOOTER */
+/*===  FOOTER ============================ */
 footer{
-  background: var(--base-color);
-}
+  background: var(--base-color);  
 
-.logo-alt span{   
-  color: var(--body-color);
+  height: 5rem;
 }
 
 .logo-alt{
-  font: 700 1.31rem "Poppins", sans-serif;
+  font: 700 1.31rem var(--title-font);
 
   color: var(--title-color);
 }
@@ -520,6 +531,8 @@ footer .brand{
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  margin-top: -4rem;
 }
 
 footer .brand p{
@@ -531,7 +544,7 @@ footer .brand p{
 
 footer .social{
   display: inline-flex;
-  gap: 2rem;  
+  gap: 2rem;
 }
 
 footer .social i{
@@ -546,7 +559,7 @@ footer .social i:hover{
   transform: translateY(-6px);  
 }
 
-/* --------------------------------------------BACK-TO-TOP */
+/*===  BACK-TO-TOP ============================ */
 .back-to-top{
   background:var(--back-top-top);
 
@@ -575,7 +588,122 @@ footer .social i:hover{
   transform: translateY(0%);
 }
 
-/* --------------------------------------------RESPONSIVE */
-@media (min-width: 992px){
+/*===  RESPONSIVE ============================ */
+
+@media (min-width: 1200px) {
+  /*===  GLOBAL ===*/
+  .container{
+    max-width: 1120px;
+    margin: 0rem auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header{
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button{
+    height: 3.1rem;
+  }
   
+  /*===  NAVIGATION ===*/
+  nav .menu{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav .menu ul{
+    display: flex;
+    gap: 2rem;
+  }  
+
+  nav .menu ul li a.title{
+    font: 400 1rem var(--body-font);
+  } 
+
+  nav .icon-menu{
+    display: none;
+  }
+
+  /*===  HOME ===*/
+  #home .image{
+    order: 1;
+  }
+
+  #home .text{
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #home .container{
+    grid-auto-flow: column;  
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  /*===  ABOUT ===*/
+  #about .container{
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /*===  SERVICES  ===*/
+  .containerCard{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /*===  TESTIMONIALS ===*/
+  #testimonials .container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*===  CONTACT  ===*/
+  #contact .container{
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text{
+    max-width: 25rem;
+  }
+
+  /*===  FOOTER  ===*/
+  footer .section{    
+    padding: 3.5rem;
+  }
+
+  footer .container{
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;    
+  }
+
+  footer .brand a{
+    font-size: 2rem;
+  }
+
+  footer .social i{
+    font-size: 1.55rem;
+  }
+}
+
+@media (min-width: 992px){
+  :root{
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
 }
